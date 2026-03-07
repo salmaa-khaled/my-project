@@ -71,7 +71,7 @@ int main() {
         cout << BLUE << "\n    Library System     " << RESET << endl;
         cout << BLUE << "1. Add Book (Member A task)\n" << RESET;
         cout << BLUE << "2. Borrow Book (Member A task)\n" << RESET;
-        cout << BLUE << "3. Return & Check Fine (Member B logic)\n" << RESET;
+        cout << BLUE << "3. Return & Check Fine \n" << RESET;
         cout << BLUE << "4. Exit & Save\n" << RESET;
         cout << "Enter Choice: ";
 
