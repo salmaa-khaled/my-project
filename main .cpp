@@ -27,9 +27,6 @@ int main() {
             cout <<BLUE<< "6. Save and Exit" <<RESET<< endl;
             cout << "Enter choice: ";
 
-        
-            if (!(cin >> choice)) 
-                cout << RED << "Error!! Invalid input! Please enter a number." << RESET << endl;
             
             switch (choice) {
                  case 1:{ 
