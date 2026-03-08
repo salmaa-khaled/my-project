@@ -19,15 +19,16 @@ int main() {
          try{
             cout <<BLUE<< "\n  ====== Library Management System ======" <<RESET<< endl;
             cout <<BLUE<< "Current Day: " << state.currentDay <<RESET<< endl;
-            cout << "1.  Add New Book" << endl;  //
-            cout << "2.  Add New Member" << endl;
-            cout << "3.  Checkout Book (Borrow)" << endl; //
-            cout << "4.  Return Book" << endl;
-            cout << "5.  Search for a Book" << endl;
-            cout << "6.  Generate Overdue Report" << endl;
-            cout << "7.  Export Overdue List (.txt)" << endl;
-            cout << "8.  Advance to Next Day" << endl; //
-            cout << "9.  Save and Exit" << endl; //
+            cout <<BLUE<< "1.  Add New Book" <<RESET<< endl; 
+            cout <<BLUE<< "2.  Add New Member" <<RESET<< endl;
+            cout <<BLUE<< "3.  Checkout Book (Borrow)" <<RESET<< endl; 
+            cout <<BLUE<< "4.  Return Book" <<RESET<< endl;
+            cout <<BLUE<< "5.  Search for a Book" <<RESET<< endl;
+            cout <<BLUE<< "6.  Generate Overdue Report" <<RESET<< endl;
+            cout <<BLUE<< "7.  Export Overdue List (.txt)" <<RESET<< endl;
+            cout <<BLUE<< "8.  Advance to Next Day" <<RESET<< endl; 
+            cout <<BLUE<< "9.  Save and Exit" <<RESET<< endl; 
+            cout << "Enter choice: ";
             cout << "Enter choice: ";
             
 
@@ -94,8 +95,8 @@ int main() {
                     cout << "Enter ISBN to search: "; cin >> isbn;
                     Book* b = findBook(state, isbn);
                     if (b) {
-                        cout << "\nFound: \"" << b->title << "\" by " << b->author << endl;
-                        cout << "Status: " << b->availableCopies << " / " << b->totalCopies << " available." << endl;
+                        cout << GREEN << "\nFound: \"" << RESET<< b->title << "\" by " << b->author << endl;
+                        cout << GREEN << "Status: " << RESET<< b->availableCopies << " / " << b->totalCopies << GREEN << " available." << RESET << endl;
                     } else {
                         cout << RED << "Book not found." << RESET << endl;
                     }
@@ -129,3 +130,4 @@ int main() {
 
     return 0;
 }
+
