@@ -94,7 +94,7 @@ int main() {
                     cout << "Enter ISBN to search: "; cin >> isbn;
                     Book* b = findBook(state, isbn);
                     if (b) {
-                        cout << "\nFound: " << b->title << " by " << b->author << endl;
+                        cout << "\nFound: \"" << b->title << "\" by " << b->author << endl;
                         cout << "Status: " << b->availableCopies << " / " << b->totalCopies << " available." << endl;
                     } else {
                         cout << RED << "Book not found." << RESET << endl;
