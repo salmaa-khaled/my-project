@@ -44,7 +44,6 @@ inline void logActivity(const string& message) {
 
 
         ctime_s(dt, sizeof(dt), &now);
-        string timeStr(dt);
         if (!timeStr.empty()) timeStr.pop_back();
 
         logFile << "[" << timeStr << "] " << message << endl;
