@@ -29,7 +29,6 @@ int main() {
             cout <<BLUE<< "8.  Advance to Next Day" <<RESET<< endl; 
             cout <<BLUE<< "9.  Save and Exit" <<RESET<< endl; 
             cout << "Enter choice: ";
-            cout << "Enter choice: ";
             
 
             if (!(cin >> choice)) {
@@ -130,4 +129,5 @@ int main() {
 
     return 0;
 }
+
 
