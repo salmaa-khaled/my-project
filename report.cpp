@@ -9,10 +9,10 @@ void generateOverdueReport(const LibraryState& state) {
             found = true;
             int days = state.currentDay - record.dueDay;
             cout << "ISBN: " << record.isbn << " | Member: " << record.memberId 
-                 << " | Overdue: " << days << " days. Fine: " << days * 5 << endl;
+                 << " | Overdue: " << days << " days"<< RED<<" Fine: " << days * 5 << RESET<< endl;
         }
     }
-    if (!found) cout << "No overdue books found." << endl;
+    if (!found) cout << GREEN << "No overdue books found." << RESET<< endl;
 }
 
 void exportOverdueBooks(const LibraryState& state, const string& filename) {
@@ -29,3 +29,4 @@ void exportOverdueBooks(const LibraryState& state, const string& filename) {
         cout << GREEN << "Report exported!" << RESET << endl;
     }
 }
+
