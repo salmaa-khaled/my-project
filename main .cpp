@@ -21,13 +21,14 @@ int main() {
             cout <<BLUE<< "Current Day: " << state.currentDay <<RESET<< endl;
             cout <<BLUE<< "1.  Add New Book" <<RESET<< endl; 
             cout <<BLUE<< "2.  Add New Member" <<RESET<< endl;
-            cout <<BLUE<< "3.  Checkout Book (Borrow)" <<RESET<< endl; 
-            cout <<BLUE<< "4.  Return Book" <<RESET<< endl;
-            cout <<BLUE<< "5.  Search for a Book" <<RESET<< endl;
-            cout <<BLUE<< "6.  Generate Overdue Report" <<RESET<< endl;
-            cout <<BLUE<< "7.  Export Overdue List (.txt)" <<RESET<< endl;
-            cout <<BLUE<< "8.  Advance to Next Day" <<RESET<< endl; 
-            cout <<BLUE<< "9.  Save and Exit" <<RESET<< endl; 
+            cout <<BLUE<< "3.  Find Book" <<RESET<< endl;
+            cout <<BLUE<< "4.  Find Member" <<RESET<< endl;
+            cout <<BLUE<< "5.  Checkout Book (Borrow)" <<RESET<< endl; 
+            cout <<BLUE<< "6.  Return Book" <<RESET<< endl;
+            cout <<BLUE<< "7.  Generate Overdue Report" <<RESET<< endl;
+            cout <<BLUE<< "8.  Export Overdue List (.txt)" <<RESET<< endl;
+            cout <<BLUE<< "9.  Advance to Next Day" <<RESET<< endl; 
+            cout <<BLUE<< "10.  Save and Exit" <<RESET<< endl; 
             cout << "Enter choice: ";
             
 
@@ -65,8 +66,41 @@ int main() {
                    break;
 
                  }
+
+                 case 3:{
+                    string isbn;
+                    cout << "\n--- Find a Book ---" << endl;
+                    cout << "Enter ISBN to search: "; cin >> isbn;
+                    Book* b = findBook(state, isbn);
+                    if (b) {
+                        cout << GREEN << "\nFound: \"" << RESET<< b->title << "\" by " << b->author << endl;
+                        cout << GREEN << "Status: " << RESET<< b->availableCopies << " / " << b->totalCopies << GREEN << " available." << RESET << endl;
+                    } else {
+                        cout << RED << "Book not found." << RESET << endl;
+                    }
+                    break;
+                }
+
+
+                 case 4:{ 
+                   string mid;
+                    cout << "\n--- Find a Member ---" << endl;
+                    cout << "Enter Member ID: "; cin >> mid;
+
+                    Member* m = findMember(state, mid);
+
+                    if (m != nullptr) {
+                        cout << GREEN << "\n[Member Found]" << RESET << endl;
+                        cout << "Name: " << m->name << endl;
+                        cout << "ID: " << m->id << endl;
+                        logActivity("Searched for member: " + m->name);
+                    } else {
+                        cout << RED << "Error: Member with ID " << mid << " not found." << RESET << endl;
+                    }
+                    break;
+                 }
                  
-                 case 3:{ 
+                 case 5:{  
                     string isbn, memberId;
                     cout << "\n--- Checkout Book ---" << endl;
                     cout << "Enter Book ISBN: "; cin >> isbn;
@@ -80,7 +114,7 @@ int main() {
                 }
                  
 
-                case 4: { // Return Book
+                case 6: { 
                     string isbn, mid;
                     cout << "Enter Book ISBN: "; cin >> isbn;
                     cout << "Enter Member ID: "; cin >> mid;
@@ -89,29 +123,19 @@ int main() {
                     cout << GREEN << "Success: Book returned to shelf!" << RESET << endl;
                     break;
                 }
-                case 5: { // Search Book
-                    string isbn;
-                    cout << "Enter ISBN to search: "; cin >> isbn;
-                    Book* b = findBook(state, isbn);
-                    if (b) {
-                        cout << GREEN << "\nFound: \"" << RESET<< b->title << "\" by " << b->author << endl;
-                        cout << GREEN << "Status: " << RESET<< b->availableCopies << " / " << b->totalCopies << GREEN << " available." << RESET << endl;
-                    } else {
-                        cout << RED << "Book not found." << RESET << endl;
-                    }
-                    break;
-                }
-                 case 6:
+               
+                
+                 case 7:
                      generateOverdueReport(state);
                     break;
-                 case 7:
+                 case 8:
                       exportOverdueBooks(state, "overdue_report.txt");
                       break;
-                 case 8:
+                 case 9:
                       state.currentDay++;
                      cout << GREEN << "Advanced to next day: " << state.currentDay << RESET << endl;
                      break;
-                      case 9:
+                 case 10:
                       saveDatabase(state, dbPath);                
                       cout << GREEN << "Data saved successfully. Exiting..." << RESET << endl;
                      return 0;
@@ -129,5 +153,9 @@ int main() {
 
     return 0;
 }
+
+
+}
+
 
 
